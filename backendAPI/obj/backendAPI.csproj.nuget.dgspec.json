@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ralle\\Desktop\\backendAPI\\backendAPI\\backendAPI.csproj": {}
+    "C:\\Users\\Ralle\\Desktop\\backendAPI-code-patterns\\backendAPI\\backendAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ralle\\Desktop\\backendAPI\\backendAPI\\backendAPI.csproj": {
+    "C:\\Users\\Ralle\\Desktop\\backendAPI-code-patterns\\backendAPI\\backendAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ralle\\Desktop\\backendAPI\\backendAPI\\backendAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Ralle\\Desktop\\backendAPI-code-patterns\\backendAPI\\backendAPI.csproj",
         "projectName": "backendAPI",
-        "projectPath": "C:\\Users\\Ralle\\Desktop\\backendAPI\\backendAPI\\backendAPI.csproj",
+        "projectPath": "C:\\Users\\Ralle\\Desktop\\backendAPI-code-patterns\\backendAPI\\backendAPI.csproj",
         "packagesPath": "C:\\Users\\Ralle\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ralle\\Desktop\\backendAPI\\backendAPI\\obj\\",
+        "outputPath": "C:\\Users\\Ralle\\Desktop\\backendAPI-code-patterns\\backendAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Ralle\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -44,15 +44,15 @@
               "target": "Package",
               "version": "[7.0.0, )"
             },
-            "Microsoft.EntityFrameWorkCore.SqlServer": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[7.0.1, )"
             },
-            "Microsoft.EntityFrameWorkCore.Tools": {
+            "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.0, )"
+              "version": "[7.0.1, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
