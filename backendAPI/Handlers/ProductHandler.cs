@@ -19,6 +19,15 @@ namespace backendAPI.Handlers
 
     /* - Interface Segregation Principle - */
 
+    /* - Dependency Inversion Principle
+    Tagit bort alla dependency delar här - */
+    public interface IProductHandler
+    {
+        Task CreateAsync(ProductModel productModel);
+        Task<IEnumerable<Product>> GetAllAsync();
+        Task<ProductEntity> GetAsync(int id);
+
+    }
     public class ProductHandler : IProductHandler
     {
         private readonly DataContext _sql;
@@ -31,10 +40,9 @@ namespace backendAPI.Handlers
 
         /* Den här hanterar funktionaliteten för att hämta alla produkter.*/
         // för att få bort beroendet så använder jag mig utav en factory.
-        public async Task<IEnumerable<ProductEntity>> GetAllAsync()
+        public async Task<IEnumerable<Product>> GetAllAsync()
         {
-            List<ProductEntity> products = _factory.ProductList();
-
+            List<Product> products = _factory.ProductList();
             foreach (var productEntity in await _sql.Products.ToListAsync())
                 products.Add(_factory.Product(productEntity));
 
@@ -45,14 +53,6 @@ namespace backendAPI.Handlers
         {
             throw new NotImplementedException();
         }
-        //public async Task CreateAsync(ProductModel productModel)
-        //{
-        //    var productEntity = _factory.ProductEntity();
-        //    productEntity.Title = productModel.Title;
-        //    productEntity.Price = productModel.Price;
-        //    _sql.Add(productEntity);
-        //    await _sql.SaveChangesAsync();
-        //}    
 
         /* Den här hanterar eventuell funktionalitet i framtiden för att söka efter id på en specifik produkt. */
         public Task<ProductEntity> GetAsync(int id)

@@ -18,7 +18,10 @@
         /* - Liskov Substitution Principle - 
          Här ärver jag ingenting. */
 
-        /* - Interface Segregation Principle - */
+        /* - Interface Segregation Principle - 
+         Jag väljer att inte använda ISP för att det skapar för mycket komplex med mitt ändamål */
+
+        /* - Dependency Inversion Principle - */
 
 
 

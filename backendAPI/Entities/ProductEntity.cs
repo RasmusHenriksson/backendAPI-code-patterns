@@ -17,15 +17,13 @@ namespace backendAPI.Models
 
         /* - Interface Segregation Principle - */
 
+        /* - Dependency Inversion Principle - */
+
         [Key]
         public int Id { get; set; }
 
-        [Required]
-        [Column(TypeName = "nvarchar(100)")]
         public string Title { get; set; } = null!;
 
-        [Required]
-        [Column(TypeName = "nvarchar(100)")]
         public string Category { get; set; } = null!;
 
         [Column(TypeName = "money")]

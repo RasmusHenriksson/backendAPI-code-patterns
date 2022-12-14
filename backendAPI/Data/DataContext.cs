@@ -20,6 +20,8 @@ namespace backendAPI.Data
 
     /* - Interface Segregation Principle - */
 
+    /* - Dependency Inversion Principle - */
+
     public class DataContext : DbContext
     {
         public DataContext(DbContextOptions options) : base(options)

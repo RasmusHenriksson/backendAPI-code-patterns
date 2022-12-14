@@ -31,6 +31,9 @@ namespace backendAPI.Controllers
 
         /* - Interface Segregation Principle - */
 
+        /* - Dependency Inversion Principle - 
+         Har ingen high level variant på detta eftersom jag har gjort en dependency injection och flyttat ut min IProductHandler. */
+
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {

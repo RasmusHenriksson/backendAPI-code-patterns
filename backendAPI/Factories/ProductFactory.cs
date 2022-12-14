@@ -6,8 +6,8 @@ namespace backendAPI.Factories
     public interface IProductFactory : IFactory
     {
         ProductEntity ProductEntity();
-        ProductEntity Product(ProductEntity productEntity);
-        List<ProductEntity> ProductList();
+        Product Product(ProductEntity productEntity);
+        List<Product> ProductList();
     }
 
     /* - Single Responsibility Pinciple - 
@@ -24,6 +24,8 @@ namespace backendAPI.Factories
 
     /* - Interface Segregation Principle - */
 
+    /* - Dependency Inversion Principle - */
+
     public class ProductFactory : IProductFactory
     {
         public ProductEntity ProductEntity()
@@ -31,9 +33,9 @@ namespace backendAPI.Factories
             return new ProductEntity();
         }
 
-        public ProductEntity Product(ProductEntity productEntity)
+        public Product Product(ProductEntity productEntity)
         {
-            return new ProductEntity()
+            return new Product()
             {
                 Id = productEntity.Id,
                 Title = productEntity.Title,
@@ -44,9 +46,11 @@ namespace backendAPI.Factories
         }
         /* Här har jag Tagit bort alla dependency delar och 
         använder mig enbart av en factory för att alla produkter kommer att se likadana ut. */
-        public List<ProductEntity> ProductList()
+        public List<Product> ProductList()
         {
-            return new List<ProductEntity>();
+            return new List<Product>();
         }
+
+       
     }
 }
