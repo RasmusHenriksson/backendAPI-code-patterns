@@ -5,7 +5,12 @@ namespace backendAPI.Models
 {
     public class ProductEntity
     {
-       
+
+        /* - Single Responsibility Pinciple - 
+         Den här klassen gör bara en sak eftersom den bara tar hand om min produkt entitet. */
+
+        /* - Open Closed Pinciple - 
+         Vi kommer aldrig behöva ändra någonting i den här klassen och följer därför Open Closed Principle*/
 
         [Key]
         public int Id { get; set; }

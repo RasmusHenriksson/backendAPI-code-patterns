@@ -1,5 +1,6 @@
 ﻿using backendAPI.Data;
 using backendAPI.Handlers;
+using backendAPI.Interfaces;
 using backendAPI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,8 +18,14 @@ namespace backendAPI.Controllers
         {
             _productHandler = productHandler;
         }
-        // Den här hanterar enbart produkter enligt CRUD och följer Single Responsibility Principle
-        
+        /* - Single Responsibility Pinciple - 
+         Den här hanterar enbart mina routes och följer Single Responsibility Principle. */
+
+        /* - Open Closed Pinciple - 
+        Vi kommer aldrig behöva ändra någonting i den här klassen men vi kan extenda genom att lägga till nya 
+        Routes och följer därför Open Closed Principle */
+
+
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {

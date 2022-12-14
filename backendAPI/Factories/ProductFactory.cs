@@ -10,6 +10,14 @@ namespace backendAPI.Factories
         List<ProductEntity> ProductList();
     }
 
+    /* - Single Responsibility Pinciple - 
+    Jag har brytit ut ifrån min handler och skapat den här factoryn
+    för att få bort beroendet i min handler och för att följa Single Responsibility Principle. */
+
+    /* - Open Closed Pinciple - 
+    Vi kommer aldrig behöva ändra någonting i den här klassen men vi kan importera och extenda nya entiteter 
+    och factories och därefter följer vi Open Closed Principle */
+
     public class ProductFactory : IProductFactory
     {
         public ProductEntity ProductEntity()
@@ -29,6 +37,7 @@ namespace backendAPI.Factories
             };
         }
         //Tagit bort alla dependency delar
+        // Använder mig enbart av en factory för att alla produkter kommer att se likadana ut
         public List<ProductEntity> ProductList()
         {
             return new List<ProductEntity>();

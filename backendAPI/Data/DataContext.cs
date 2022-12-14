@@ -3,14 +3,25 @@ using Microsoft.EntityFrameworkCore;
 
 namespace backendAPI.Data
 {
-    
-        // Här har jag utgått ifrån Single Responsibility Principle eftersom den bara har hand om min dataContext del till SQL
-        public class DataContext : DbContext
-        {
-            public DataContext(DbContextOptions options) : base(options)
-            {
-            }
+    /* Jag använder mig utav MVC principen med Models, Controllers och Views men eftersom det saknas vyer i mitt API 
+     * så finns den delen inte med. Men jag utgår ifrån denna princip oavsett. 
+     
+     Den andra principen MVVM går inte att applicera på mitt Web API då den saknar vyer.*/
 
-            public DbSet<ProductEntity> Products { get; set; }
+    /* - Single Responsibility Pinciple - 
+     Här har jag utgått ifrån Single Responsibility Principle eftersom den bara har hand om min dataContext till SQL. */
+
+    /* - Open Closed Pinciple - 
+    Vi kommer aldrig behöva ändra någonting i den här klassen men vi kan extenda genom att lägga till nya 
+    DbSets och följer därför Open Closed Principle */
+
+    //LISP
+    public class DataContext : DbContext
+    {
+        public DataContext(DbContextOptions options) : base(options)
+        {
         }
+
+        public DbSet<ProductEntity> Products { get; set; }
     }
+}

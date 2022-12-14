@@ -1,41 +1,48 @@
 ﻿using backendAPI.Data;
-using backendAPI.Factories;
+using backendAPI.Interfaces;
 using backendAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace backendAPI.Handlers
 {
-    public interface IProductHandler
-    {
-        Task CreateAsync(ProductModel req);
-        Task<IEnumerable<ProductEntity>> GetAllAsync();
-        Task<ProductEntity> GetAsync(int id);
-        
-    }
+    /* - Single Responsibility Pinciple - 
+    Jag har brytit ut ifrån min controller och den här handlern
+    hanterar enbart mina funktioner och följer Single Responsibility Principle. */
 
-    
+    /* - Open Closed Pinciple - 
+   Vi kommer aldrig behöva ändra någonting i den här klassen men vi kan importera och extenda nya funktioner
+   som följer CRUD och därefter följer vi Open Closed Principle */
+
     public class ProductHandler : IProductHandler
     {
         private readonly DataContext _sql;
-        private readonly IProductFactory _factory;
-        
-        public ProductHandler(DataContext sql, IProductFactory factory)
+        private readonly Factories.IProductFactory _factory;      
+        public ProductHandler(DataContext sql, Factories.IProductFactory factory)
         {
             
             _sql = sql;
             _factory = factory;
         }
 
-        public async Task CreateAsync(ProductModel req)
+        public Task CreateAsync(ProductModel req)
         {
-            var productEntity = _factory.ProductEntity();
-            productEntity.Title = req.Title;
-            productEntity.Price = req.Price;
-
-            _sql.Add(productEntity);
-            await _sql.SaveChangesAsync();
+            throw new NotImplementedException();
         }
 
+        /* Den här hanterar funktionaliteten för att skapa produkter.*/
+        //public async Task CreateAsync(ProductModel productModel)
+        //{
+        //    var productEntity = _factory.ProductEntity();
+        //    productEntity.Title = productModel.Title;
+        //    productEntity.Price = productModel.Price;
+
+        //    _sql.Add(productEntity);
+        //    await _sql.SaveChangesAsync();
+        //}    
+
+
+        /* Den här hanterar funktionaliteten för att hämta alla produkter.*/
+        // för att få bort beroendet så använder jag mig utav en factory.
         public async Task<IEnumerable<ProductEntity>> GetAllAsync()
         {
             List<ProductEntity> products = _factory.ProductList();
@@ -45,7 +52,7 @@ namespace backendAPI.Handlers
 
             return products;
         }
-
+        /* Den här hanterar eventuell funktionalitet i framtiden för att söka efter id på en specifik produkt. */
         public Task<ProductEntity> GetAsync(int id)
         {
             throw new NotImplementedException();
