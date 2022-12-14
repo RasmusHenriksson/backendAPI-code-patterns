@@ -1,0 +1,6 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/backendAPI/sql_db.mdf
+/backendAPI/sql_db_log.ldf
