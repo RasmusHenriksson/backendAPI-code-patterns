@@ -9,11 +9,15 @@ namespace backendAPI.Interfaces
 
         /* - Open Closed Pinciple - 
          Vi kommer aldrig behöva ändra någonting i den här klassen men vi kan extenda detta interface
-         och därefter följer vi Open Closed Principle */
+         och därefter följer vi Open Closed Principle. */
+
+        /* - Liskov Substitution Principle - 
+         Här ärver jag ingenting. */
+
+        /* - Interface Segregation Principle - */
 
         Task CreateAsync(ProductModel req);
         Task<IEnumerable<ProductEntity>> GetAllAsync();
         Task<ProductEntity> GetAsync(int id);
-
     }
 }

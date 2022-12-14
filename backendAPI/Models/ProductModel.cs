@@ -13,7 +13,14 @@
          Den här klassen gör bara en sak eftersom den bara tar hand om min produkt modell. */
 
         /* - Open Closed Pinciple - 
-         Vi kommer aldrig behöva ändra någonting i den här klassen och följer därför Open Closed Principle*/
+         Vi kommer aldrig behöva ändra någonting i den här klassen och följer därför Open Closed Principle. */
+
+        /* - Liskov Substitution Principle - 
+         Här ärver jag ingenting. */
+
+        /* - Interface Segregation Principle - */
+
+
 
         public string Title { get; set; } = null!;
         public string Category { get; set; } = null!;

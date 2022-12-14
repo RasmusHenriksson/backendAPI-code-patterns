@@ -12,6 +12,11 @@ namespace backendAPI.Models
         /* - Open Closed Pinciple - 
          Vi kommer aldrig behöva ändra någonting i den här klassen och följer därför Open Closed Principle*/
 
+        /* - Liskov Substitution Principle - 
+        Denna klass ärver ingenting. */
+
+        /* - Interface Segregation Principle - */
+
         [Key]
         public int Id { get; set; }
 

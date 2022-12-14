@@ -16,7 +16,13 @@ namespace backendAPI.Factories
 
     /* - Open Closed Pinciple - 
     Vi kommer aldrig behöva ändra någonting i den här klassen men vi kan importera och extenda nya entiteter 
-    och factories och därefter följer vi Open Closed Principle */
+    och factories och därefter följer vi Open Closed Principle. */
+
+    /* - Liskov Substitution Principle - 
+    Här ärver ProductFactory ifrån IProductFactory som innehåller allting med produkter att göra och
+    är implementerat i Program.cs med ett interface .*/
+
+    /* - Interface Segregation Principle - */
 
     public class ProductFactory : IProductFactory
     {
@@ -36,8 +42,8 @@ namespace backendAPI.Factories
                 imgUrl = productEntity.imgUrl
             };
         }
-        //Tagit bort alla dependency delar
-        // Använder mig enbart av en factory för att alla produkter kommer att se likadana ut
+        /* Här har jag Tagit bort alla dependency delar och 
+        använder mig enbart av en factory för att alla produkter kommer att se likadana ut. */
         public List<ProductEntity> ProductList()
         {
             return new List<ProductEntity>();

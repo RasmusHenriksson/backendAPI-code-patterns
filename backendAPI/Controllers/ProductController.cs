@@ -25,11 +25,18 @@ namespace backendAPI.Controllers
         Vi kommer aldrig behöva ändra någonting i den här klassen men vi kan extenda genom att lägga till nya 
         Routes och följer därför Open Closed Principle */
 
+        /* - Liskov Substitution Principle - 
+        Här ärver ProductController ifrån ControllerBase för att jag ska kunna använda mig utav
+        dess bas klasser och här används OkOBjectResult som ger en status 200 OK response */
+
+        /* - Interface Segregation Principle - */
+
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var products = await _productHandler.GetAllAsync();
             return new OkObjectResult(products);
+
         }
     }
 }

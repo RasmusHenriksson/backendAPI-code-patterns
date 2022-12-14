@@ -1,4 +1,5 @@
 ﻿using backendAPI.Data;
+using backendAPI.Factories;
 using backendAPI.Interfaces;
 using backendAPI.Models;
 using Microsoft.EntityFrameworkCore;
@@ -13,11 +14,16 @@ namespace backendAPI.Handlers
    Vi kommer aldrig behöva ändra någonting i den här klassen men vi kan importera och extenda nya funktioner
    som följer CRUD och därefter följer vi Open Closed Principle */
 
+    /* - Liskov Substitution Principle - 
+    Här ärver ProductHandler ifrån IProductHandler för att bryta ut mitt interface så att jag uppnår Single Responsibility Principle. */
+
+    /* - Interface Segregation Principle - */
+
     public class ProductHandler : IProductHandler
     {
         private readonly DataContext _sql;
-        private readonly Factories.IProductFactory _factory;      
-        public ProductHandler(DataContext sql, Factories.IProductFactory factory)
+        private readonly IProductFactory _factory;      
+        public ProductHandler(DataContext sql, IProductFactory factory)
         {          
             _sql = sql;
             _factory = factory;
