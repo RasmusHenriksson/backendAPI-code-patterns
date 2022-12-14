@@ -28,7 +28,7 @@ namespace backendAPI.Factories
                 imgUrl = productEntity.imgUrl
             };
         }
-
+        //Tagit bort alla dependency delar
         public List<ProductEntity> ProductList()
         {
             return new List<ProductEntity>();

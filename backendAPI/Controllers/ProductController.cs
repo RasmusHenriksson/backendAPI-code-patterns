@@ -18,28 +18,7 @@ namespace backendAPI.Controllers
             _productHandler = productHandler;
         }
         // Den här hanterar enbart produkter enligt CRUD och följer Single Responsibility Principle
-        // GET: api/ProductEntities
-        //[HttpGet]
-
-        //public async Task<ActionResult<IEnumerable<ProductModel>>> GetProducts()
-        //{
-        //    var items = new List<ProductModel>();
-
-        //    foreach (var item in await _context.Products.ToListAsync())
-        //    {
-
-        //        items.Add(new ProductModel(
-        //        item.Title,
-        //        item.Category,
-        //        item.Price,
-        //        item.imgUrl
-               
-        //    ));
-
-        //    }
-
-        //    return items;
-        //}
+        
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
