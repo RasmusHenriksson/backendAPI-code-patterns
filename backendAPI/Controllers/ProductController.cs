@@ -25,7 +25,6 @@ namespace backendAPI.Controllers
         Vi kommer aldrig behöva ändra någonting i den här klassen men vi kan extenda genom att lägga till nya 
         Routes och följer därför Open Closed Principle */
 
-
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {

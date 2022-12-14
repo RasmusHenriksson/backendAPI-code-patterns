@@ -18,28 +18,10 @@ namespace backendAPI.Handlers
         private readonly DataContext _sql;
         private readonly Factories.IProductFactory _factory;      
         public ProductHandler(DataContext sql, Factories.IProductFactory factory)
-        {
-            
+        {          
             _sql = sql;
             _factory = factory;
         }
-
-        public Task CreateAsync(ProductModel req)
-        {
-            throw new NotImplementedException();
-        }
-
-        /* Den här hanterar funktionaliteten för att skapa produkter.*/
-        //public async Task CreateAsync(ProductModel productModel)
-        //{
-        //    var productEntity = _factory.ProductEntity();
-        //    productEntity.Title = productModel.Title;
-        //    productEntity.Price = productModel.Price;
-
-        //    _sql.Add(productEntity);
-        //    await _sql.SaveChangesAsync();
-        //}    
-
 
         /* Den här hanterar funktionaliteten för att hämta alla produkter.*/
         // för att få bort beroendet så använder jag mig utav en factory.
@@ -52,6 +34,20 @@ namespace backendAPI.Handlers
 
             return products;
         }
+        /* Den här hanterar funktionaliteten för att skapa produkter om vi vill bygga det.*/
+        public Task CreateAsync(ProductModel req)
+        {
+            throw new NotImplementedException();
+        }
+        //public async Task CreateAsync(ProductModel productModel)
+        //{
+        //    var productEntity = _factory.ProductEntity();
+        //    productEntity.Title = productModel.Title;
+        //    productEntity.Price = productModel.Price;
+        //    _sql.Add(productEntity);
+        //    await _sql.SaveChangesAsync();
+        //}    
+
         /* Den här hanterar eventuell funktionalitet i framtiden för att söka efter id på en specifik produkt. */
         public Task<ProductEntity> GetAsync(int id)
         {
