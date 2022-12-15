@@ -3,6 +3,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace backendAPI.Models
 {
+    /* - Single Responsibility Pinciple - 
+         Den här klassen gör bara en sak eftersom den bara tar hand om min produkt entitet. */
+
+    /* - Open Closed Pinciple - 
+         Vi kommer aldrig behöva ändra någonting i den här klassen och följer därför Open Closed Principle*/
+
     public class ProductEntity
     {
         public ProductEntity()
@@ -18,17 +24,6 @@ namespace backendAPI.Models
             CategoryId = categoryId;
             Category = category;
         }
-
-
-
-        /* - Single Responsibility Pinciple - 
-         Den här klassen gör bara en sak eftersom den bara tar hand om min produkt entitet. */
-
-        /* - Open Closed Pinciple - 
-         Vi kommer aldrig behöva ändra någonting i den här klassen och följer därför Open Closed Principle*/
-
-
-        /* - Dependency Inversion Principle - */
 
         [Key]
         public int Id { get; set; }

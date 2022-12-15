@@ -12,13 +12,11 @@ namespace backendAPI.Handlers
     hanterar enbart mina funktioner och följer Single Responsibility Principle. */
 
     /* - Open Closed Pinciple - 
-   Vi kommer aldrig behöva ändra någonting i den här klassen men vi kan importera och extenda nya funktioner
-   som följer CRUD och därefter följer vi Open Closed Principle */
+    Vi kommer aldrig behöva ändra någonting i den här klassen men vi kan importera och extenda nya funktioner
+    som följer CRUD och därefter följer vi Open Closed Principle */
 
     /* - Liskov Substitution Principle - 
     Här ärver ProductHandler ifrån IProductHandler för att bryta ut mitt interface så att jag uppnår Single Responsibility Principle. */
-
-    /* - Interface Segregation Principle - */
 
     /* - Dependency Inversion Principle
      * Har ingen high level variant på detta eftersom jag har gjort en dependency injection och flyttat ut min IProductFactory. */
