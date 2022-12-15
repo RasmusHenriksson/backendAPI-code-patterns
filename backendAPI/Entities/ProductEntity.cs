@@ -5,6 +5,21 @@ namespace backendAPI.Models
 {
     public class ProductEntity
     {
+        public ProductEntity()
+        {
+        }
+
+        public ProductEntity(int id, string title, decimal price, string imgUrl, int categoryId, CategoryEntity category)
+        {
+            Id = id;
+            Title = title;
+            Price = price;
+            this.imgUrl = imgUrl;
+            CategoryId = categoryId;
+            Category = category;
+        }
+
+
 
         /* - Single Responsibility Pinciple - 
          Den här klassen gör bara en sak eftersom den bara tar hand om min produkt entitet. */
@@ -12,10 +27,6 @@ namespace backendAPI.Models
         /* - Open Closed Pinciple - 
          Vi kommer aldrig behöva ändra någonting i den här klassen och följer därför Open Closed Principle*/
 
-        /* - Liskov Substitution Principle - 
-        Denna klass ärver ingenting. */
-
-        /* - Interface Segregation Principle - */
 
         /* - Dependency Inversion Principle - */
 
@@ -23,13 +34,16 @@ namespace backendAPI.Models
         public int Id { get; set; }
 
         public string Title { get; set; } = null!;
-
-        public string Category { get; set; } = null!;
+      
 
         [Column(TypeName = "money")]
         public decimal Price { get; set; }
 
         public string imgUrl { get; set; } = null!;
+
+        public int CategoryId { get; set; }
+
+        public CategoryEntity Category { get; set; } 
     }
 }
 

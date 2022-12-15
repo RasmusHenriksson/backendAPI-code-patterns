@@ -2,13 +2,20 @@
 {
     public class ProductModel
     {
-        public ProductModel(string title, string category, decimal price, string imgUrl)
+        public ProductModel()
         {
+        }
+
+        public ProductModel(int id, string title, decimal price, string imgUrl, CategoryModel category)
+        {
+            Id = id;
             Title = title;
-            Category = category;
             Price = price;
             this.imgUrl = imgUrl;
+            Category = category;
         }
+
+
         /* - Single Responsibility Pinciple - 
          Den här klassen gör bara en sak eftersom den bara tar hand om min produkt modell. */
 
@@ -24,11 +31,11 @@
         /* - Dependency Inversion Principle - */
 
 
-
+        public int Id { get; set; }
         public string Title { get; set; } = null!;
-        public string Category { get; set; } = null!;
         public decimal Price { get; set; }
         public string imgUrl { get; set; } = null!;
+        public CategoryModel Category { get; set; }
 
 
 

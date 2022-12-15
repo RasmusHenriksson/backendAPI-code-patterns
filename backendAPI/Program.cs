@@ -1,10 +1,7 @@
 using backendAPI.Data;
 using backendAPI.Handlers;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.FileSystemGlobbing.Internal;
-using System;
 using backendAPI.Factories;
-using backendAPI.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("Sql")));
-builder.Services.AddSingleton<backendAPI.Factories.IProductFactory, ProductFactory>();
+builder.Services.AddSingleton<IProductFactory, ProductFactory>();
 builder.Services.AddScoped<IProductHandler, ProductHandler>();
 var app = builder.Build();
 

@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\backendAPI"
+    "\\backendAPI",
+    "\\backendAPI\\Controllers",
+    "\\backendAPI\\Handlers",
+    "\\backendAPI\\Migrations"
   ],
-  "SelectedNode": "\\backendAPI.sln",
+  "SelectedNode": "\\backendAPI\\Handlers\\ProductHandler.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -29,5 +29,6 @@ namespace backendAPI.Data
         }
 
         public DbSet<ProductEntity> Products { get; set; }
+        public DbSet<CategoryEntity> Categories { get; set; } = null!;
     }
 }

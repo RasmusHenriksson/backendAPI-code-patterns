@@ -2,6 +2,7 @@
 using backendAPI.Factories;
 using backendAPI.Interfaces;
 using backendAPI.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace backendAPI.Handlers
@@ -20,13 +21,11 @@ namespace backendAPI.Handlers
     /* - Interface Segregation Principle - */
 
     /* - Dependency Inversion Principle
-    Tagit bort alla dependency delar här - */
+     * Har ingen high level variant på detta eftersom jag har gjort en dependency injection och flyttat ut min IProductFactory. */
+
     public interface IProductHandler
     {
-        Task CreateAsync(ProductModel productModel);
-        Task<IEnumerable<Product>> GetAllAsync();
-        Task<ProductEntity> GetAsync(int id);
-
+        Task<IEnumerable<ProductModel>> GetAllAsync();       
     }
     public class ProductHandler : IProductHandler
     {
@@ -39,25 +38,23 @@ namespace backendAPI.Handlers
         }
 
         /* Den här hanterar funktionaliteten för att hämta alla produkter.*/
-        // för att få bort beroendet så använder jag mig utav en factory.
-        public async Task<IEnumerable<Product>> GetAllAsync()
+        public async Task<IEnumerable<ProductModel>> GetAllAsync()
         {
-            List<Product> products = _factory.ProductList();
-            foreach (var productEntity in await _sql.Products.ToListAsync())
-                products.Add(_factory.Product(productEntity));
+            List<ProductModel> products = _factory.ProductList();
 
+            foreach (var productEntity in await _sql.Products.Include(x => x.Category).ToListAsync())
+                products.Add(_factory.Product(productEntity));
+ 
             return products;
         }
-        /* Den här hanterar funktionaliteten för att skapa produkter om vi vill bygga det.*/
-        public Task CreateAsync(ProductModel req)
-        {
-            throw new NotImplementedException();
-        }
+        
 
-        /* Den här hanterar eventuell funktionalitet i framtiden för att söka efter id på en specifik produkt. */
-        public Task<ProductEntity> GetAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
+
+
+
+
     }
-}
+
+        
+    }
+   

@@ -3,11 +3,11 @@ using backendAPI.Models;
 
 namespace backendAPI.Factories
 {
-    public interface IProductFactory : IFactory
+    public interface IProductFactory
     {
         ProductEntity ProductEntity();
-        Product Product(ProductEntity productEntity);
-        List<Product> ProductList();
+        ProductModel Product(ProductEntity productEntity);
+        List<ProductModel> ProductList();
     }
 
     /* - Single Responsibility Pinciple - 
@@ -28,29 +28,31 @@ namespace backendAPI.Factories
 
     public class ProductFactory : IProductFactory
     {
+        
+        /* Här har jag Tagit bort alla dependency delar och 
+        använder mig enbart av en factory för att alla produkter kommer att se likadana ut. */
+        public ProductModel Product(ProductEntity productEntity)
+        {
+            return new ProductModel()
+            {
+                Id = productEntity.Id,
+                Title = productEntity.Title,
+                Price = productEntity.Price,
+                imgUrl = productEntity.imgUrl,
+                Category = new(productEntity.Category.CategoryId, productEntity.Category.CategoryName)
+               
+            };
+        }
+        public List<ProductModel> ProductList()
+        {
+            return new List<ProductModel>();
+        }
+
         public ProductEntity ProductEntity()
         {
             return new ProductEntity();
         }
 
-        public Product Product(ProductEntity productEntity)
-        {
-            return new Product()
-            {
-                Id = productEntity.Id,
-                Title = productEntity.Title,
-                Category= productEntity.Category,
-                Price = productEntity.Price,
-                imgUrl = productEntity.imgUrl
-            };
-        }
-        /* Här har jag Tagit bort alla dependency delar och 
-        använder mig enbart av en factory för att alla produkter kommer att se likadana ut. */
-        public List<Product> ProductList()
-        {
-            return new List<Product>();
-        }
 
-       
     }
 }

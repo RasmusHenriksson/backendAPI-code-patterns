@@ -13,10 +13,12 @@ namespace backendAPI.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IProductHandler _productHandler;
+        private readonly DataContext _context;
 
-        public ProductController(IProductHandler productHandler)
+        public ProductController(IProductHandler productHandler, DataContext context)
         {
             _productHandler = productHandler;
+            _context = context;
         }
         /* - Single Responsibility Pinciple - 
          Den här hanterar enbart mina routes och följer Single Responsibility Principle. */
@@ -38,8 +40,33 @@ namespace backendAPI.Controllers
         public async Task<IActionResult> GetAll()
         {
             var products = await _productHandler.GetAllAsync();
+
             return new OkObjectResult(products);
+        }
+
+        [HttpGet("{category}")]
+
+        public async Task<IActionResult> GetCategoryAsync()
+        {
+            var items = await _context.Products.Include(x => x.Category).ToListAsync();
+            List<IProductModel> products = new List<IProductModel>();
+
+            foreach (var item in items)
+            {
+                if (item.Category.CategoryName == "Sweater")
+                    products.Add(new Sweater
+                    {
+                        Id = item.CategoryId,
+                        Size = "Large",
+                        HasZipper = true
+                    });
+            }
+
+            return new OkObjectResult(products);
+
+
 
         }
     }
 }
+
