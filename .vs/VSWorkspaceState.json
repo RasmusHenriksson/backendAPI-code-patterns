@@ -3,9 +3,10 @@
     "",
     "\\backendAPI",
     "\\backendAPI\\Controllers",
+    "\\backendAPI\\Entities",
     "\\backendAPI\\Handlers",
     "\\backendAPI\\Migrations"
   ],
-  "SelectedNode": "\\backendAPI\\Handlers\\ProductHandler.cs",
+  "SelectedNode": "\\backendAPI.sln",
   "PreviewInSolutionExplorer": false
 }
